@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% load static %}
+{% load extras %}
+
+{% block content %}
+  <div class="subjectDiv"> All the Collections </div>
+    <div class="actionDiv">Album：{{totalalbum}} </div>
+    <div class="normalDiv"></div>
+    {% for album in albums %}
+      <div class="albumDiv">
+        <div class="picDiv">
+          {% if lengths|extras:forloop.counter0 == 0 %}
+            <img src="{% static "images/nopic.png" %}" alt="no picture" width="120" height="120" border="0" />
+          {% else %}
+            <a href="/albumshow/{{album.id}}/">
+            <img src="/media/{{photos|extras:forloop.counter0}}" width="120" height="120" border="0" /></a>
+          {% endif %}
+        </div>
+        <div class="albuminfo">
+          {% if lengths|extras:forloop.counter0 == 0 %}
+            {{album.atitle}}<br />
+          {% else %}
+            <a href="/albumshow/{{album.id}}/">{{album.atitle}}</a><br />
+          {% endif %}
+          <span class="smalltext">{{lengths|extras:forloop.counter0}} pictures in total</span><br>
+          <br>
+        </div>
+      </div>
+    {% endfor %}
+{% endblock %}

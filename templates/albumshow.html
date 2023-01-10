@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+  <div class="subjectDiv"> Title {{monophoto.palbum.atitle}}</div>
+    <div class="actionDiv">Total Picture：{{totalphoto}} </div>
+    <div class="normalDiv">
+      <p><strong>Shooting Time</strong>：{{monophoto.palbum.adate}}</p>
+      <p><strong>Location</strong>：{{monophoto.palbum.alocation}}</p>
+      <p><strong>Description</strong> :{{monophoto.palbum.adesc}}</p>
+    </div>
+    {% for photo in photos %}
+      <div class="albumDiv">
+        <div class="picDiv"><a href="/albumphoto/{{photo.id}}/{{album}}/"><img src="/media/{{photo.purl}}" width="120" height="120" border="0" /></a></a></div>
+        <div class="albuminfo"><a href="/albumphoto/{{photo.id}}/{{album}}/">{{photo.psubject}}</a><br />
+          <span class="smalltext">Click：</span>{{photo.phit}}</div>
+      </div>
+    {% endfor %}
+{% endblock %}

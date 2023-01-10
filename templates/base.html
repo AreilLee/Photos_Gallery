@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>Photos Gallery</title>
+	{% load static %}
+	<link href="{% static "css/style.css" %}" rel="stylesheet" type="text/css" />
+</head>
+<body bgcolor="#850E35">
+	<table width="900" border="0" align="center" cellpadding="0" cellspacing="0">
+	  <tr>
+		<td height="124" valign="top" background="{% static "images/top.jpg" %}">
+		  <div class="titleDiv" align="left"> [Photos Gallery]</div>
+		  <div class="menulink">
+			<a href="/index/">[Home]</a>
+			<a href="/login/">[Login]</a>
+		  </div>
+		</td>
+	  </tr>
+	  <tr>
+		<td bgcolor="#86C8BC">
+		  <div id="mainRegion">
+			  <table width="90%" border="0" align="center" cellpadding="4" cellspacing="0">
+				<tr>
+				   <td>
+					 {% block content %}{% endblock %}
+				  </td>
+			   </tr>
+			  </table>
+			</div>
+		  </td>
+	  </tr>
+	  <tr>
+		<td height="20" align="center" bgcolor="FFC4C4" class="trademark">&copy; 2022 Ariel Gallery Reserved.</td>
+	  </tr>
+	</table>
+</body>
+</html>

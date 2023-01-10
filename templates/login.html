@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+  <div class="subjectDiv"> Login </div>
+    <div class="albumdesc">
+      <form action="." name="form1" method="POST">
+        {% csrf_token %}
+        <table border="0" align="center" cellpadding="4" cellspacing="0">
+          <tr>
+            <th><p>Account</p></th>
+            <td valign="baseline">{{postform.username}}</td>
+          </tr>
+          <tr>
+            <th><p>Password</p></th>
+            <td valign="baseline">{{postform.password}}</td>
+          </tr>
+           <tr>
+            <th><p>Captcha</p></th>
+             <td valign="baseline">{{postform.captcha}}</td>
+          </tr>
+          <tr>
+            <td colspan="2" align="center"><p>
+              <input type="submit" name="button" id="button" value="Login" />
+              <input type="button" name="button2" id="button2" value="Back" onClick="window.history.back();" />
+              </p></td>
+          </tr>
+        </table>
+      </form>
+    </div>
+{% endblock %}
